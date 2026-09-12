@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link4M Bypass</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔓</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔓 Link4M Bypass</h1>
+            <p class="subtitle">Direct download link extractor — client-side, no data leaves your browser</p>
+        </header>
+
+        <main>
+            <section id="input-section">
+                <div class="input-group">
+                    <label for="link4m-url">Link4M Protected URL:</label>
+                    <textarea id="link4m-url" placeholder="https://link4m.example.com/abc123" rows="2"></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="btn-bypass" class="btn btn-primary">⚡ Bypass</button>
+                    <button id="btn-batch" class="btn btn-secondary">📋 Batch Mode</button>
+                </div>
+            </section>
+
+            <section id="progress-section" class="hidden">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <p id="status-text">Initializing...</p>
+                <div id="step-indicator"></div>
+            </section>
+
+            <section id="result-section" class="hidden">
+                <div class="result-card">
+                    <div class="result-header">
+                        <h2>✅ Direct Link Found</h2>
+                        <span class="badge" id="file-badge"></span>
+                    </div>
+                    <div class="result-body">
+                        <div class="url-display">
+                            <input type="text" id="direct-url" readonly>
+                            <button id="btn-copy" class="btn btn-small">📋 Copy</button>
+                        </div>
+                        <div class="download-options">
+                            <a id="btn-download" class="btn btn-download" download>⬇️ Download</a>
+                            <button id="btn-curl" class="btn btn-small">💻 Copy cURL</button>
+                            <button id="btn-wget" class="btn btn-small">💻 Copy wget</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="error-section" class="hidden">
+                <div class="error-card">
+                    <h2>❌ Error</h2>
+                    <p id="error-message"></p>
+                    <button id="btn-retry" class="btn btn-primary">🔄 Retry</button>
+                </div>
+            </section>
+
+            <section id="batch-section" class="hidden">
+                <div class="batch-area">
+                    <textarea id="batch-input" placeholder="Paste multiple Link4M URLs, one per line..."></textarea>
+                    <button id="btn-batch-run" class="btn btn-primary">⚡ Process All</button>
+                    <div id="batch-results"></div>
+                </div>
+            </section>
+
+            <section id="history-section">
+                <h3>📜 Recent History</h3>
+                <ul id="history-list"></ul>
+                <button id="btn-clear-history" class="btn btn-small btn-ghost">Clear History</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>All processing happens locally in your browser. No URLs are sent to any server.</p>
+            <p>Built with vanilla JS — no dependencies, no trackers.</p>
+        </footer>
+    </div>
+
+    <script src="js/url-parser.js"></script>
+    <script src="js/bypass-engine.js"></script>
+    <script src="js/downloader.js"></script>
+    <script src="js/app.js"></script>
+</body>
+  </html>
